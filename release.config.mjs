@@ -1,0 +1,11 @@
+const config = {
+  branches: ["main"],
+  preset: "conventionalcommits",
+  plugins: [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/github",
+  ],
+};
+
+export default config;
