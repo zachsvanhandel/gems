@@ -41,6 +41,28 @@ jobs:
       - name: build
         run: pnpm build
 
+  format:
+    name: format
+
+    strategy:
+      matrix:
+        node-version: [24]
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6
+
+      - name: setup
+        uses: ./.github/actions/setup
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: format
+        run: pnpm format:check
+
   lint:
     name: lint
 
